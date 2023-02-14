@@ -1,4 +1,5 @@
 # blocker
+[![.github/workflows/ci.yaml](https://github.com/alesr/blocker/actions/workflows/ci.yaml/badge.svg)](https://github.com/alesr/blocker/actions/workflows/ci.yaml)
 
 This project is an ongoing exercise to learn about blockchain and cryptocurrencies, and the work is in progress.
 
