@@ -12,15 +12,23 @@ help:
 
 .PHONY: build
 build: ## Build Go binary to ./bin
-	@echo "Building ${NAME}..."
 	@go build -o bin/${NAME}
 
 .PHONY: run
 run: build ## Build and run Go binary
-	@echo "Running ${NAME}..."
 	@./bin/${NAME}
+
+.PHONY: lint
+lint: ## Run go fmt and go vet
+	@go fmt ./...
+	@go vet ./...
 
 .PHONY: test
 test: ## Run tests
-	@echo "Running tests..."
 	@go test -v -race -count=1 ./...
+
+.PHONY: proto
+proto: ## Generate gRPC code from proto files
+	@protoc --go_out=. --go_opt=paths=source_relative \
+		--go-grpc_out=. --go-grpc_opt=paths=source_relative \
+		proto/*.proto

@@ -2,7 +2,11 @@ module github.com/alesr/blocker
 
 go 1.20
 
-require github.com/stretchr/testify v1.8.1
+require (
+	github.com/golang/protobuf v1.5.0
+	github.com/stretchr/testify v1.8.1
+	google.golang.org/protobuf v1.28.1
+)
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
