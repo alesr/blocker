@@ -18,6 +18,11 @@ build: ## Build Go binary to ./bin
 run: build ## Build and run Go binary
 	@./bin/${NAME}
 
+.PHONY: lint
+lint: ## Run go fmt and go vet
+	@go fmt ./...
+	@go vet ./...
+
 .PHONY: test
 test: ## Run tests
 	@go test -v -race -count=1 ./...
