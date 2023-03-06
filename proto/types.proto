@@ -8,12 +8,28 @@ message Block{
 }
 
 message Header {
-    int32 version = 1;
-    int32 height = 2;
+    uint32 version = 1;
+    uint32 height = 2;
     bytes previousHash = 3;
     bytes merkleRoot = 4;
     int64 timestamp = 5;
 }
 
-message Transaction {}
+message TxInput {
+    bytes previousOutHash = 1; // The hash of the transaction that contains the output being spent.
+    uint32 previousOutIndex = 2; // The index of the output of the previous transaction that is being spent.
+    bytes publicKey = 3;
+    bytes signature = 4;
+}
+
+message TxOutput {
+    uint64 amount = 1;
+    bytes address = 2;
+}
+
+message Transaction {
+    uint32 version = 1;
+    repeated TxInput inputs = 2;
+    repeated TxOutput outputs = 3;
+}
 
