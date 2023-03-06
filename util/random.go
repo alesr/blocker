@@ -38,7 +38,7 @@ func RandomBlock() (*proto.Block, error) {
 	return &proto.Block{
 		Header: &proto.Header{
 			Version:      1,
-			Height:       int32(rand.Intn(1000)),
+			Height:       uint32(rand.Intn(1000)),
 			PreviousHash: prevHash,
 			MerkleRoot:   merkleRoot,
 			Timestamp:    time.Now().UnixNano(),
